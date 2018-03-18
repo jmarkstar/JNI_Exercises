@@ -1,6 +1,6 @@
 # JNI Exercises
 
-##Steps
+###Steps
 
 Create the java file. `HelloWorld.java`
 
@@ -38,5 +38,27 @@ If you have all the files on the same directory you should have the following fi
 Finally, Execute the java class.
 
 `java HelloWorld -Djava.library.path=libHelloWorld.dylib`
+
+###Recipes
+
+######Recipe 01
+
+The first recipe is a simple HelloWorld.
+
+######Recipe 02
+
+In this recipe I'm passing the Java Primitive Types to C where will be converted to the appropiate Native Type. [More information](https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/types.html)
+
+| Java Primitive Types        | Native Types           | Description     |
+| --------------------------- |:----------------------:| ---------------:|
+| byte | jbyte | signed 8 bits |
+| short | jshort | signed 16 bits |
+| int | jint | signed 32 bits |
+| long | jlong | signed 64 bits |
+| float | jfloat | 32 bits |
+| double | jdouble | 64 bits |
+| boolean  | jboolean | unsigned 8 bits |
+| char | jchar | unsigned 16 bits |
+| void | void | N/A |
 
 
