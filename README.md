@@ -61,4 +61,14 @@ In this recipe I'm passing the Java Primitive Types to C where will be converted
 | char | jchar | unsigned 16 bits |
 | void | void | N/A |
 
+`signed` means that the type can represent negavite numbers; `unsigned` cannot.
+
+######Recipe 03
+
+String
+
+######Recipe 04
+
+Arrays
+
 

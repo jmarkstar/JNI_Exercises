@@ -71,6 +71,70 @@ JNIEXPORT void JNICALL Java_PassNativeTypes_displayBoolean
 JNIEXPORT void JNICALL Java_PassNativeTypes_displayChar
   (JNIEnv *, jclass, jchar);
 
+/*
+ * Class:     PassNativeTypes
+ * Method:    getBoolean
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_PassNativeTypes_getBoolean
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     PassNativeTypes
+ * Method:    getByte
+ * Signature: ()B
+ */
+JNIEXPORT jbyte JNICALL Java_PassNativeTypes_getByte
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     PassNativeTypes
+ * Method:    getChar
+ * Signature: ()C
+ */
+JNIEXPORT jchar JNICALL Java_PassNativeTypes_getChar
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     PassNativeTypes
+ * Method:    getShort
+ * Signature: ()S
+ */
+JNIEXPORT jshort JNICALL Java_PassNativeTypes_getShort
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     PassNativeTypes
+ * Method:    getInt
+ * Signature: ()I
+ */
+JNIEXPORT jint JNICALL Java_PassNativeTypes_getInt
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     PassNativeTypes
+ * Method:    getLong
+ * Signature: ()J
+ */
+JNIEXPORT jlong JNICALL Java_PassNativeTypes_getLong
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     PassNativeTypes
+ * Method:    getFloat
+ * Signature: ()F
+ */
+JNIEXPORT jfloat JNICALL Java_PassNativeTypes_getFloat
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     PassNativeTypes
+ * Method:    getDouble
+ * Signature: ()D
+ */
+JNIEXPORT jdouble JNICALL Java_PassNativeTypes_getDouble
+  (JNIEnv *, jclass);
+
 #ifdef __cplusplus
 }
 #endif

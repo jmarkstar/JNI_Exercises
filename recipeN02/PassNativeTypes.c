@@ -33,3 +33,53 @@ JNIEXPORT void JNICALL Java_PassNativeTypes_displayBoolean(JNIEnv *env, jclass o
 JNIEXPORT void JNICALL Java_PassNativeTypes_displayChar(JNIEnv *env, jclass obj, jchar value){
     printf("Passed char value: %c \n", value);
 }
+
+//RETURN VALUES TO JAVA
+
+JNIEXPORT jboolean JNICALL Java_PassNativeTypes_getBoolean(JNIEnv *env, jclass obj) {
+ 
+  jboolean result = JNI_TRUE;
+  return result;
+}
+ 
+JNIEXPORT jbyte JNICALL Java_PassNativeTypes_getByte(JNIEnv *env, jclass obj) {
+ 
+  jbyte result = 127;
+  return result;
+}
+ 
+JNIEXPORT jchar JNICALL Java_PassNativeTypes_getChar(JNIEnv *env, jclass obj) {
+ 
+  jchar result = 'a';
+  return result;
+}
+ 
+JNIEXPORT jshort JNICALL Java_PassNativeTypes_getShort(JNIEnv *env, jclass obj) {
+ 
+  jshort result = 2500;
+  return result;
+}
+ 
+JNIEXPORT jint JNICALL Java_PassNativeTypes_getInt(JNIEnv *env, jclass obj) {
+ 
+  jint result = 12500;
+  return result;
+}
+ 
+JNIEXPORT jlong JNICALL Java_PassNativeTypes_getLong(JNIEnv *env, jclass obj) {
+ 
+  jlong result = 125000000;
+  return result;
+}
+ 
+JNIEXPORT jfloat JNICALL Java_PassNativeTypes_getFloat(JNIEnv *env, jclass obj) {
+ 
+  jfloat result = 1.1;
+  return result;
+}
+ 
+JNIEXPORT jdouble JNICALL Java_PassNativeTypes_getDouble(JNIEnv *env, jclass obj) {
+ 
+  jdouble result = 1.1;
+  return result;
+}
