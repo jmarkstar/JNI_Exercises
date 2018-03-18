@@ -1,6 +1,6 @@
 # JNI Exercises
 
-###Steps
+### Steps
 
 Create the java file. `HelloWorld.java`
 
@@ -39,13 +39,13 @@ Finally, Execute the java class.
 
 `java HelloWorld -Djava.library.path=libHelloWorld.dylib`
 
-###Recipes
+### Recipes
 
-######Recipe 01
+###### Recipe 01
 
 The first recipe is a simple HelloWorld.
 
-######Recipe 02
+###### Recipe 02
 
 In this recipe I'm passing the Java Primitive Types to C where will be converted to the appropiate Native Type. [More information](https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/types.html)
 
@@ -63,11 +63,11 @@ In this recipe I'm passing the Java Primitive Types to C where will be converted
 
 `signed` means that the type can represent negavite numbers; `unsigned` cannot.
 
-######Recipe 03
+###### Recipe 03
 
 String
 
-######Recipe 04
+###### Recipe 04
 
 Arrays
 
