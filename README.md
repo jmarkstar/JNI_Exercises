@@ -65,7 +65,20 @@ In this recipe I'm passing the Java Primitive Types to C where will be converted
 
 ###### Recipe 03
 
-String
+In this recipe I'm passing Strings and using some JNI methods like:
+
+* `GetStringUTFChars()` Convert `jstring` to `const char *`.
+* `ReleaseStringUTFChars()` Release memory
+* `NewStringUTF()` Create new string
+* `GetStringUTFLength()` get the `jsize` of the string.
+
+`jsize` is an alias, its real type is `jint`.
+
+`typedef jint jsize;`
+
+`typedef` is a keyword in the C and C++ languages to create an alias name for another data type.
+
+[More information](http://www.softlab.ntua.gr/facilities/documentation/unix/java/tutorial/native1.1/implementing/string.html)
 
 ###### Recipe 04
 
