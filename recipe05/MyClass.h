@@ -18,6 +18,9 @@ JNIEXPORT void JNICALL Java_MyClass_accessField
   JNIEXPORT void JNICALL Java_MyClass_accessStaticField
   (JNIEnv *, jobject);
 
+   JNIEXPORT void JNICALL Java_MyClass_nativeMethod
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

@@ -2,6 +2,27 @@
 #include "jni.h"
 #include "MyClass.h"
 
+
+JNIEXPORT void JNICALL Java_MyClass_nativeMethod
+  (JNIEnv *env, jobject obj){
+      jclass myClassRef = (*env)->GetObjectClass(env, obj);
+
+      jmethodID callbackMethodId = (*env)->GetMethodID(env, myClassRef, "callback", "()V");
+      if(callbackMethodId == NULL){
+          return;
+      }
+
+      jmethodID callMyStaticMethodId = (*env)->GetStaticMethodID(env, myClassRef, "myStaticMethod", "()V");
+      if(callMyStaticMethodId == NULL){
+          return;
+      }
+
+      printf("In C \n");
+      (*env)->CallVoidMethod(env, obj, callbackMethodId);
+      (*env)->CallStaticVoidMethod(env, myClassRef, callMyStaticMethodId);
+}
+
+
 JNIEXPORT void JNICALL Java_MyClass_accessStaticField(JNIEnv *env, jobject obj){
     
     jclass myClass = (*env)->GetObjectClass(env, obj);

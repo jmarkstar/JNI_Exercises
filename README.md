@@ -41,11 +41,11 @@ Finally, Execute the java class.
 
 ### Recipes
 
-###### Recipe 01 HelloWorld
+##### Recipe 01 HelloWorld
 
 The first recipe is a simple HelloWorld.
 
-###### Recipe 02 Native Types
+##### Recipe 02 Native Types
 
 In this recipe I'm passing the Java Primitive Types to C where will be converted to the appropiate Native Type. [More information](https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/types.html)
 
@@ -63,7 +63,7 @@ In this recipe I'm passing the Java Primitive Types to C where will be converted
 
 `signed` means that the type can represent negavite numbers; `unsigned` cannot.
 
-###### Recipe 03 Strings
+##### Recipe 03 Strings
 
 In this recipe I'm passing Strings and using some JNI methods like:
 
@@ -89,7 +89,7 @@ Unicode
 
 [More information](http://www.softlab.ntua.gr/facilities/documentation/unix/java/tutorial/native1.1/implementing/string.html)
 
-###### Recipe 04 Arrays
+##### Recipe 04 Arrays
 
 * GetArrayLength(env, array)
 
@@ -140,7 +140,9 @@ Unicode
 | JNI_COMMIT | copy back the content but **dont** free the elems buffer.|
 | JNI_ABORT | free the buffer without copying back the possible changes|
 
-###### Recipe 05 Fields and Methods
+##### Recipe 05 Fields and Methods
+
+###### Fields 
 
 Java supports two kinds of fields: instance fields and static fields.
 
@@ -168,11 +170,19 @@ If we specify the **-p** option It will print the field descriptors of private m
 
 `javap -s -p MyClass`
 
+###### Methods
 
+* GetMethodID(env, classReference, methodname, signature) performs a lookup for the method in the given class.
 
-###### Recipe 06 Local and Global references
+* Call[ **PrimitiveType** ]Method() invokes an instance method that has the return type [ **PrimitiveType** ] or **Object**.
 
-###### Recipe 07 Exceptions 
+* GetStaticMethodID() performs a lookup for the static method in the given class.
+
+* CallStatic[ **PrimitiveType** ]Method() invokes an static method that has the return type [ **PrimitiveType** ] or **Object**.
+
+##### Recipe 06 Local and Global references
+
+##### Recipe 07 Exceptions 
 
 ## JNI Stuffs 
 
