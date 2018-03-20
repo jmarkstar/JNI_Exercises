@@ -1,3 +1,4 @@
+
 public class JNIArrays {
  
     public static native void passBooleanArray(boolean [] array);
@@ -8,6 +9,8 @@ public class JNIArrays {
     public static native void passLongArray(long [] array);
     public static native void passFloatArray(float [] array);
     public static native void passDoubleArray(double [] array);
+
+    public static native int [] returnIntArray(int size);
    
     static {
       System.loadLibrary("JNIArrays");
@@ -37,5 +40,29 @@ public class JNIArrays {
       passLongArray(longArray);
       passFloatArray(floatArray);
       passDoubleArray(doubleArray);
+
+      for(int i=0;i<3;i++) {
+        System.out.println(
+                "boolArray["    + i + "] = " + boolArray[i]   + "\n"
+              + "byteArray["    + i + "] = " + byteArray[i]   + "\n"
+              + "charArray["    + i + "] = " + charArray[i]   + "\n"
+              + "shortArray["   + i + "] = " + shortArray[i]  + "\n"
+              + "intArray["     + i + "] = " + intArray[i]    + "\n"
+              + "longArray["    + i + "] = " + longArray[i]   + "\n"
+              + "floatArray["   + i + "] = " + floatArray[i]  + "\n"
+              + "doubleArray["  + i + "] = " + doubleArray[i] + "\n");
+      }
+
+      System.out.println();
+      System.out.println("-------------------------");
+      System.out.println();
+
+      int returnedIntArray [] = returnIntArray(10);
+
+      for(int i=0;i<returnedIntArray.length; i++){
+        System.out.println("value ["+i+"] = "+returnedIntArray[i]);
+      }
+    
+
     }
 }

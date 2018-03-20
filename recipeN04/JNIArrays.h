@@ -7,6 +7,12 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+
+
+JNIEXPORT jintArray JNICALL Java_JNIArrays_returnIntArray
+  (JNIEnv *, jclass, jint);
+
 /*
  * Class:     JNIArrays
  * Method:    passBooleanArray

@@ -41,11 +41,11 @@ Finally, Execute the java class.
 
 ### Recipes
 
-###### Recipe 01
+###### Recipe 01 HelloWorld
 
 The first recipe is a simple HelloWorld.
 
-###### Recipe 02
+###### Recipe 02 Native Types
 
 In this recipe I'm passing the Java Primitive Types to C where will be converted to the appropiate Native Type. [More information](https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/types.html)
 
@@ -63,7 +63,7 @@ In this recipe I'm passing the Java Primitive Types to C where will be converted
 
 `signed` means that the type can represent negavite numbers; `unsigned` cannot.
 
-###### Recipe 03
+###### Recipe 03 String
 
 In this recipe I'm passing Strings and using some JNI methods like:
 
@@ -89,9 +89,56 @@ Unicode
 
 [More information](http://www.softlab.ntua.gr/facilities/documentation/unix/java/tutorial/native1.1/implementing/string.html)
 
-###### Recipe 04
+###### Recipe 04 Arrays
 
-Arrays
+* GetArrayLength(env, array)
+
+	Returns the number of elements in the array.
+
+	`jsize length = (*env)->GetArrayLength(env, array);`
+
+* Get**[PrimitiveType]**ArrayElements(env, array, 0) Routines
+
+	`jboolean *body = (*env)->GetBooleanArrayElements(env, array, 0);`
+
+* New**[PrimitiveType]**Array Routines
+
+	A family of operations used to construct a new 	primitive array object.
+	
+	| New<PrimitiveType>Array Routines | Array Type |
+	|----|---|
+	| NewBooleanArray() | jbooleanArray |
+	| NewByteArray() | jbyteArray |
+	| NewCharArray() | jcharArray |
+	| NewShortArray() | jshortArray |
+	| NewIntArray() | jintArray |
+	| NewLongArray() | jlongArray |
+	| NewFloatArray() | jfloatArray |
+	| NewDoubleArray() | jdoubleArray |
+	
+	`jintArray  = (*env)->NewIntArray(env, size);`
+	
+* Set**[PrimitiveType]**ArrayRegion Routines
+	
+	A family of functions that copies back a region of a primitive array from a buffer.
+
+	```
+	jintArray  = (*env)->NewIntArray(env, size);
+	
+	jint start = 0;
+	jint length = 10;
+	jint tempArray [size];
+	
+	(*env)->SetIntArrayRegion(env, javaArray, start, length, tempArray);
+	```
+	
+* Release**[PrimitiveType]**ArrayElements(env, array, body, **mode**) Routines
+
+| mode | actions |
+|----|---|
+| 0 | copy back the content **and** free the elems buffer |
+| JNI_COMMIT | copy back the content but **dont** free the elems buffer.|
+| JNI_ABORT | free the buffer without copying back the possible changes|
 
 ## JNI Stuffs 
 
@@ -117,5 +164,7 @@ Points to a location that contains a pointer to a function table. Each entry in 
 ### References
 
 http://journals.ecs.soton.ac.uk/java/tutorial/native1.1/implementing/array.html
+
+https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/functions.html#wp23717
 
 
