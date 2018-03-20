@@ -63,7 +63,7 @@ In this recipe I'm passing the Java Primitive Types to C where will be converted
 
 `signed` means that the type can represent negavite numbers; `unsigned` cannot.
 
-###### Recipe 03 String
+###### Recipe 03 Strings
 
 In this recipe I'm passing Strings and using some JNI methods like:
 
@@ -97,11 +97,11 @@ Unicode
 
 	`jsize length = (*env)->GetArrayLength(env, array);`
 
-* Get**[PrimitiveType]**ArrayElements(env, array, 0) Routines
+* Get[ **PrimitiveType** ]ArrayElements(env, array, 0) Routines
 
 	`jboolean *body = (*env)->GetBooleanArrayElements(env, array, 0);`
 
-* New**[PrimitiveType]**Array Routines
+* New[ **PrimitiveType** ]Array Routines
 
 	A family of operations used to construct a new 	primitive array object.
 	
@@ -118,7 +118,7 @@ Unicode
 	
 	`jintArray  = (*env)->NewIntArray(env, size);`
 	
-* Set**[PrimitiveType]**ArrayRegion Routines
+* Set[ **PrimitiveType** ]ArrayRegion Routines
 	
 	A family of functions that copies back a region of a primitive array from a buffer.
 
@@ -132,13 +132,47 @@ Unicode
 	(*env)->SetIntArrayRegion(env, javaArray, start, length, tempArray);
 	```
 	
-* Release**[PrimitiveType]**ArrayElements(env, array, body, **mode**) Routines
+* Release[ **PrimitiveType** ]ArrayElements(env, array, body, **mode**) Routines
 
 | mode | actions |
 |----|---|
 | 0 | copy back the content **and** free the elems buffer |
 | JNI_COMMIT | copy back the content but **dont** free the elems buffer.|
 | JNI_ABORT | free the buffer without copying back the possible changes|
+
+###### Recipe 05 Fields and Methods
+
+Java supports two kinds of fields: instance fields and static fields.
+
+* GetObjectClass(env, obj) Gets the class reference.
+
+* GetFieldID(env, classReference, fieldName, fieldSignature) Gets the field ID.
+
+* GetObjectField() Gets the field reference.
+
+* SetObjectField() Sets the value of an instance (nonstatic) field of an object. 
+
+* GetStaticFieldID() Returns the field ID for a static field of a class. 
+
+* GetStatic[ **PrimitiveType** ]Field() Returns the value of a static field of an object.
+
+* SetStatic[ **PrimitiveType** ]Field() Sets the value of a static field of an object. 
+
+**JNI field signature** 
+
+We can use the **javap** tool to geneate the field descriptors from the class files. Normally javap prints out the method and field types in a given class. 
+
+If we specify the **-s** option It will print the field descriptors.
+
+If we specify the **-p** option It will print the field descriptors of private members. [More Info](https://communities.ca.com/docs/DOC-99575135)
+
+`javap -s -p MyClass`
+
+
+
+###### Recipe 06 Local and Global references
+
+###### Recipe 07 Exceptions 
 
 ## JNI Stuffs 
 
