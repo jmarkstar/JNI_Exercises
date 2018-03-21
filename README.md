@@ -214,9 +214,19 @@ Like global refer- ences, weak global references remain valid across native meth
 
 ##### Recipe 07 Exceptions 
 
+* ExceptionCheck(env) Checks for pending exceptions without creating a local reference to the exception object. It returns JNI_TRUE or JNI_FALSE.
 
+* ExceptionOccurred() Determines if an exception is 	being thrown. The exception stays being thrown 	until either the native code calls 		ExceptionClear(), or the Java code handles the 	exception. 
 
-## JNI Stuffs 
+	Returns the exception object that is currently in 	the process of being thrown, or NULL if no 	exception is currently being thrown.
+
+* ExceptionDescribe() Prints an exception and a backtrace of the stack to a system error-reporting channel, such as stderr. This is a convenience routine provided for debugging.
+
+* ExceptionClear() Clears any exception that is currently being thrown. If no exception is currently being thrown, this routine has no effect.
+
+* ThowNew(env, exceptionClassRef, "Message")
+
+## More of JNI 
 
 ##### JNIEnv interface pointer 
 
