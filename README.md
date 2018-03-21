@@ -182,7 +182,39 @@ If we specify the **-p** option It will print the field descriptors of private m
 
 ##### Recipe 06 Local and Global references
 
+The JNI supports three kinds of opaque references: **local references**, **global references**, and **weak global references**.
+
+Local and global references have different lifetimes. Local references are automatically freed, whereas global and weak global references remain valid until they are freed by the programmer.
+
+A local or global reference keeps the referenced object from being garbage collected. A weak global reference, on the other hand, allows the referenced object to be garbage collected.
+
+###### Local References
+
+A local reference is valid only within the dynamic context of the native method that creates it, and only within that one invocation of the native method.
+
+All local references created during the execution of a native method will be freed once the native method returns.
+
+Local references are also only valid in the thread that creates them. 
+
+###### Global References
+
+You can use a global reference across multiple invocations of a native method. A global reference can be used across multiple threads and remains valid until it is freed by the programmer. Like a local reference, a global reference ensures that the referenced object will not be garbage collected.
+
+* NewGlobalRef(env, obj) is the only method to create global references.
+
+* DeleteGlobalRef(env, obj) deletes a global reference.
+
+###### Weak Global References
+
+Like global refer- ences, weak global references remain valid across native method calls and across different threads. Unlike global references, weak global references do not keep the underlying object from being garbage collected.
+
+* NewGlobalWeakRef(env, obj) 
+
+* DeleteGlobalWeakRef()
+
 ##### Recipe 07 Exceptions 
+
+
 
 ## JNI Stuffs 
 
@@ -209,6 +241,6 @@ Points to a location that contains a pointer to a function table. Each entry in 
 
 http://journals.ecs.soton.ac.uk/java/tutorial/native1.1/implementing/array.html
 
-https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/functions.html#wp23717
+https://docs.oracle.com/javase/8/docs/technotes/guides/jni/spec/functions.html
 
 
